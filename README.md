@@ -8,7 +8,7 @@ This project aims to detect fraudulent credit card transactions using the K-Near
 
 - **Source:** [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
 - **Note:** The dataset contains 284,807 transactions with 31 features, including the target class.
-- **Disclaimer:** Due to GitHub's 100MB file limit, the dataset is not uploaded directly here. Please download it manually from the link above.
+- **Disclaimer:** Due to GitHub's 25MB file limit, the dataset is not uploaded directly here. Please download it manually from the link above.
 
 ---
 
