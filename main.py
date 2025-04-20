@@ -25,4 +25,4 @@ if st.button("Predict"):
         st.success("✅ Legitimate Transaction")
 
 st.markdown("---")
-st.markdown("Made with ❤️ by [Ananya Arya](https://www.linkedin.com/in/ananya-arya-34a265257/)")
+st.markdown("Made with ❤️")
