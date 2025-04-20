@@ -1,19 +1,28 @@
-# streamlit_app.py
 import streamlit as st
 import numpy as np
-from sklearn.neighbors import KNeighborsClassifier
 import pickle
 
 # Load trained model
 model = pickle.load(open('knn_model.pkl', 'rb'))
 
-st.title("Credit Card Fraud Detector")
+st.markdown("## 🛡️ Credit Card Fraud Detection")
+st.markdown("Enter the values for each feature and click **Predict** to check if the transaction is fraudulent.")
+
 input_values = []
 
-for i in range(30):  # Assuming 28 features after PCA
-    val = st.number_input(f"Feature V{i+1}")
-    input_values.append(val)
+with st.expander("🔍 Input Feature Values"):
+    col1, col2 = st.columns(2)
+    for i in range(30):  # 28 PCA features + Time & Amount
+        with (col1 if i % 2 == 0 else col2):
+            val = st.number_input(f"Feature V{i+1}", key=f"v{i+1}")
+            input_values.append(val)
 
 if st.button("Predict"):
     prediction = model.predict([input_values])
-    st.write("Fraudulent" if prediction[0] == 1 else "Legitimate")
+    if prediction[0] == 1:
+        st.error("🚨 Fraudulent Transaction Detected!")
+    else:
+        st.success("✅ Legitimate Transaction")
+
+st.markdown("---")
+st.markdown("Made with ❤️ by [Ananya Arya](https://www.linkedin.com/in/ananya-arya-34a265257/)")
